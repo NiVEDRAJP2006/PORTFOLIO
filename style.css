@@ -519,37 +519,35 @@ section{
     color: #aaa;
 }
 
-@media (max-width: 600px) {
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
 
-    html {
-        font-size: 60%;
+    .home {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 4rem;
     }
 
-    .project-card {
-        width: 90%;
+    .home-content {
+        align-items: center;
     }
 
-    .project-card img {
-        height: 200px;
-    }
-}
-
-
-@media (max-width: 900px) {
-
-    html {
-        font-size: 62%;
-    }
-
-    .project-card {
-        width: 45%;
+    .home-img img {
+        width: 60vw;
+        height: 60vw;
     }
 }
 
+/* ===== LARGE SCREENS ===== */
+@media (min-width: 1200px) {
 
-@media (min-width: 901px) {
+    .home {
+        padding: 0 10%;
+        gap: 10rem;
+    }
 
-    .project-card {
-        width: 350px;
+    .home-img img {
+        width: 300px;
+        height: 300px;
     }
 }
