@@ -519,58 +519,108 @@ section{
     color: #aaa;
 }
 
-@media(max-width:1285px){
-    #menu-icon{
-        display: block;
-    }
-    .navbar{
-        position: absolute;
-        top: 100%;
-        right: 0;
-        width: 50%;
-        padding: 1rem 3rem;
-        background: rgba(0, 0, 0, 0.8);
-        border-bottom-left-radius: 2rem;
-        border-left: 2px solid var(--main-color);
-        border-bottom: 2px solid var(--main-color);
-        display: none;
-    }
-    .navbar a{
-        display: block;
-        font-size: 2rem;
-        margin: 3rem 0;
-        color: var(--text-color);
-    }
-    .navbar.active{
-        display: block;
-    }
-    .gradient-btn {
-        display: none;
-    }
-    .home{
-        flex-direction: column-reverse;
-        margin: 5rem 0;
-        gap: 5rem;
-    }
-    .home-content{
-        align-items: center;
-        text-align: center;
-    }
-    .home-img img{
-        width: 45vw;
-    }
-    .about {
-        flex-direction: column-reverse;
-        text-align: center;
-    }
-    .about h2{
-        text-align: center;
-        margin: 2rem 0;
-    }
-    .about img{
-        width: 48vw;
-    }
-    .contact form{
+/* 📲 TABLET */
+@media (max-width: 992px) {
+
+    .home {
         flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+    }
+
+    .home-img img {
+        width: 300px;
+        height: 300px;
+    }
+
+    .home-content h1 {
+        font-size: 3.5rem;
+    }
+
+    .home-content p {
+        max-width: 90%;
+        margin: auto;
+    }
+}
+
+/* 📱 MOBILE */
+@media (max-width: 600px) {
+
+    .home {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 2rem;
+        padding: 4rem 5%;
+    }
+
+    /* IMAGE ON TOP */
+    .home-img {
+        order: -1;
+    }
+
+    .home-img img {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: top;
+        box-shadow: 
+            0 0 30px var(--main-color),
+            0 0 60px var(--main-color);
+    }
+
+    /* TEXT BELOW IMAGE */
+    .home-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .home-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .home-content h3 {
+        font-size: 1.8rem;
+    }
+
+    .home-content p {
+        font-size: 1.4rem;
+        line-height: 1.6;
+        max-width: 90%;
+    }
+
+    /* ICONS CENTER */
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    /* BUTTONS */
+    .btn-group {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+}
+
+/* 🖥️ LARGE SCREENS */
+@media (min-width: 1400px) {
+
+    .home {
+        padding: 5rem 15%;
+    }
+
+    .home-img img {
+        width: 450px;
+        height: 450px;
+    }
+
+    .home-content h1 {
+        font-size: 5rem;
     }
 }
