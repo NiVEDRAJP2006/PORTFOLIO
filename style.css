@@ -495,9 +495,21 @@ section{
         gap: 4rem;
     }
 
+    .home-img{
+        order: -1;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
     .home-img img{
         width: 60vw;
         height: 60vw;
+    }
+
+    .home-content{
+        align-items: center;
+        text-align: center;
     }
     
     .gradient-btn{
@@ -510,10 +522,6 @@ section{
 
     .about{
         flex-direction: column;
-    }
-
-    .home-img{
-        order: -1;
     }
 
     .about-img img{
