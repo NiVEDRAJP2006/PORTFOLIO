@@ -512,6 +512,10 @@ section{
         flex-direction: column;
     }
 
+    .home-img{
+        order: -1;
+    }
+
     .about-img img{
         width: 60vw;
         height: 60vw;
