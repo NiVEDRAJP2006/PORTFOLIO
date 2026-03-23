@@ -519,106 +519,58 @@ section{
     color: #aaa;
 }
 
-/* 📱 MOBILE FIX (IMPORTANT) */
-@media (max-width: 768px) {
-
-    /* Fix overall spacing */
-    section {
-        padding: 6rem 5%;
+@media(max-width:1285px){
+    #menu-icon{
+        display: block;
     }
-
-    /* NAVBAR FIX */
-    .navbar {
-        width: 100%;
+    .navbar{
+        position: absolute;
+        top: 100%;
         right: 0;
-        text-align: center;
+        width: 50%;
+        padding: 1rem 3rem;
+        background: rgba(0, 0, 0, 0.8);
+        border-bottom-left-radius: 2rem;
+        border-left: 2px solid var(--main-color);
+        border-bottom: 2px solid var(--main-color);
+        display: none;
     }
-
-    /* HOME SECTION */
-    .home {
-        flex-direction: column;
-        text-align: center;
-        gap: 3rem;
-    }
-
-    .home-content {
-        align-items: center;
-    }
-
-    .home-content h1 {
-        font-size: 3.5rem;
-    }
-
-    .home-content h3 {
+    .navbar a{
+        display: block;
         font-size: 2rem;
+        margin: 3rem 0;
+        color: var(--text-color);
     }
-
-    .home-content p {
-        font-size: 1.5rem;
-        line-height: 1.6;
-        max-width: 90%;
-        margin: auto;
+    .navbar.active{
+        display: block;
     }
-
-    /* IMAGE FIX */
-    .home-img img {
-        width: 65vw;
-        height: 65vw;
-        object-fit: cover;
-        border-radius: 50%;
+    .gradient-btn {
+        display: none;
     }
-
-    /* ABOUT SECTION FIX */
-    .about {
-        flex-direction: column;
+    .home{
+        flex-direction: column-reverse;
+        margin: 5rem 0;
+        gap: 5rem;
+    }
+    .home-content{
+        align-items: center;
         text-align: center;
-        gap: 3rem;
     }
-
-    .about img {
-        width: 65vw;
-        height: 65vw;
-        border-radius: 50%;
-        object-fit: cover;
+    .home-img img{
+        width: 45vw;
     }
-
-    .about-content p {
-        font-size: 1.5rem;
-        line-height: 1.7;
-        max-width: 90%;
-        margin: auto;
+    .about {
+        flex-direction: column-reverse;
+        text-align: center;
     }
-
-    /* PROJECTS CENTER FIX */
-    .projects-box {
-        grid-template-columns: 1fr;
-        justify-items: center;
+    .about h2{
+        text-align: center;
+        margin: 2rem 0;
     }
-
-    .project-card {
-        width: 90%;
-        margin: 0 auto;
+    .about img{
+        width: 48vw;
     }
-
-    /* SOCIAL ICONS */
-    .social-icons {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 1.5rem;
-    }
-}
-
-/* ===== LARGE SCREENS ===== */
-@media (min-width: 1200px) {
-
-    .home {
-        padding: 0 10%;
-        gap: 10rem;
-    }
-
-    .home-img img {
-        width: 300px;
-        height: 300px;
+    .contact form{
+        flex-direction: column;
     }
 }
