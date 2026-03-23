@@ -80,7 +80,8 @@ span{
     );
     letter-spacing: 1px;
     cursor: pointer;
-    transition: 0.3 ease-in-out;
+    /* ✅ FIX 1: Added missing "s" unit — was "0.3" (ignored by browser), now "0.3s" */
+    transition: 0.3s ease-in-out;
     color: white;
     border: none;
     text-wrap: nowrap;
@@ -91,7 +92,6 @@ span{
 section{
     min-height: 100vh;
     padding: 10rem 15%;
-
 }
 .home{
     display: flex;
@@ -133,7 +133,6 @@ section{
     box-shadow: 0 0 25px var(--main-color),
                 0 0 50px var(--main-color),
                 0 0 100px var(--main-color);
-
 }
 .social-icons a {
     display: inline-flex;
@@ -146,12 +145,13 @@ section{
     border-radius: 50%;
     color: var(--main-color);
     margin: 3rem 0.5rem;
-    transition: 0.3 ease-in-out;
+    /* ✅ FIX 2: Added missing "s" unit — was "0.3" (ignored by browser), now "0.3s" */
+    transition: 0.3s ease-in-out;
 }
 .social-icons a:hover{
     color: var(--text-color);
     background-color: var(--main-color);
-    transform: scale(1.2)translateY(-5px);
+    transform: scale(1.2) translateY(-5px);
     box-shadow: 0 0 25px var(--main-color);
 }
 .btn-group{
@@ -168,11 +168,13 @@ section{
     color: black;
     border: 2px solid transparent;
     font-weight: 600;
-    transition: 0.3 ease-in-out;
+    /* ✅ FIX 3: Added missing "s" unit — was "0.3" (ignored by browser), now "0.3s" */
+    transition: 0.3s ease-in-out;
 }
 .btn:hover{
     transform: scale(1.05);
-    box-shadow: 0 0 25px var(--main-color)
+    /* ✅ FIX 4: Added missing comma between two box-shadow values */
+    box-shadow: 0 0 25px var(--main-color),
                 0 0 50px var(--main-color);
 }
 .btn-group a:nth-of-type(2){
@@ -186,7 +188,6 @@ section{
     background-color: var(--main-color);
     color: black;   
 }
-
 .about{
     display: flex;
     justify-content: center;
@@ -194,7 +195,6 @@ section{
     gap: 10rem;
     background-color: var(--second-bg-color);
 }
-
 .about-img img {
     width: 28vw;
     height: 28vw;
@@ -202,22 +202,17 @@ section{
     box-shadow: 0 0 25px var(--main-color);
     transition: 0.4s ease-in-out;
 }
-
 .about-img img:hover{
     box-shadow: 0 0 25px var(--main-color),
                 0 0 50px var(--main-color),
                 0 0 100px var(--main-color);
 }
-
-
 .about-content {
     max-width: 500px;
 }
-
 .about-content h2{
     font-size: 4rem;
 }
-
 .about-content p {
     font-size: 1.4rem;
     line-height: 1.6;
@@ -239,20 +234,16 @@ section{
     font-size: 7rem;
     margin: 5rem 0;
 }
-
 .services {
     background-color: var(--bg-color);
     text-align: center;
 }
-
 .services-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
     padding: 0 10%;
 }
-
-
 .service-box {
     background-color: var(--main-color);
     padding: 4rem 2rem;
@@ -261,49 +252,36 @@ section{
     cursor: pointer;
     text-align: center;
 }
-
-
 .service-box i {
     font-size: 4rem;
     margin-bottom: 1rem;
     color: black;
 }
-
-
 .service-box h3 {
     font-size: 2.2rem;
     margin-bottom: 1rem;
     color: black;
 }
-
-
 .service-box p {
     font-size: 1.3rem;
     line-height: 1.6;
     color: black;
 }
-
-
 .service-box:hover {
     background-color: var(--second-bg-color);
     transform: translateY(-10px);
     box-shadow: 0 0 25px var(--main-color);
 }
-
 .service-box:hover h3,
 .service-box:hover p,
 .service-box:hover i {
     color: var(--main-color);
 }
-
-
 .projects {
     background-color: var(--second-bg-color);
     text-align: center;
-
     padding: 10rem 0;   
 }
-
 .projects-box {
     display: flex;              
     justify-content: center;   
@@ -311,137 +289,98 @@ section{
     flex-wrap: wrap;            
     gap: 3rem;
 }
-
-
 .project-card {
     width: 350px;            
     max-width: 90%;
-
     background-color: var(--bg-color);
     border: 2px solid var(--main-color);
     border-radius: 2rem;
-
     padding: 2rem;
     text-align: center;
-
     transition: 0.3s ease;
     cursor: pointer;
 }
-
-
 .project-card img {
     width: 100%;
     height: 220px;
     object-fit: cover;
     border-radius: 1.5rem;
 }
-
-
 .project-card h3 {
     font-size: 2rem;
     margin: 1rem 0;
 }
-
 .project-card p {
     font-size: 1.4rem;
     line-height: 1.6;
 }
-
 .project-card .btn {
     margin-top: 1.5rem;
 }
-
-
 .project-card:hover {
     transform: translateY(-10px);
     box-shadow:
         0 0 20px var(--main-color),
         0 0 40px var(--main-color);
 }
-
-
 .contact {
     background: linear-gradient(135deg, #080808, #101010, #1a1a1a);
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     text-align: center;
     padding: 10rem 2rem;
-
     width: 100%;
 }
-
 .contact * {
     margin-left: 0 !important;
     margin-right: 0 !important;
 }
-
 .contact-info {
     width: 100%;
     max-width: 600px;
-
     margin: 0 auto;   
-
     background: rgba(255, 255, 255, 0.05);
     border: 2px solid var(--main-color);
     border-radius: 2rem;
-
     padding: 3rem;
     backdrop-filter: blur(10px);
-
     box-shadow:
         0 0 20px rgba(234, 88, 12, 0.3),
         0 0 40px rgba(234, 88, 12, 0.2);
 }
-
-
 .contact-info p {
     font-size: 2rem;
     margin: 1.5rem 0;
-
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
 }
-
 .contact-info i {
     color: var(--main-color);
     font-size: 2.2rem;
 }
-
-
 .contact .social-icons {
     width: 100%;
-
     display: flex;
     align-items: center;
     gap: 2rem;
-
     margin-top: 4rem;
 }
-
 .contact .social-icons a {
     display: flex;
     justify-content: center;
     align-items: center;
-
     width: 60px;
     height: 60px;
-
     border: 2px solid var(--main-color);
     border-radius: 50%;
-
     color: var(--main-color);
     font-size: 2.5rem;
-
     transition: 0.3s ease;
 }
-
-
 .contact .social-icons a:hover {
     background-color: var(--main-color);
     color: black;
@@ -457,69 +396,54 @@ section{
     padding: 40px 20px;
     text-align: center;
 }
-
-/* ICONS */
 .footer .social-icons {
     display: flex;
     justify-content: center;
     gap: 2rem;
     margin-bottom: 2rem;
 }
-
-/* ICON STYLE */
 .footer .social-icons a {
     width: 55px;
     height: 55px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     border: 2px solid var(--main-color);
     border-radius: 50%;
-
     color: var(--main-color);
     font-size: 2rem;
-
     transition: 0.3s ease;
 }
-
 .footer .social-icons a:hover {
     background-color: var(--main-color);
     color: black;
     transform: scale(1.1);
 }
-
-/* ===== FIX MAIN PROBLEM HERE ===== */
 .footer-links {
-    list-style: none;              /* ❌ REMOVE BULLETS */
-    display: flex;                 /* 🔥 MAKE HORIZONTAL */
+    list-style: none;
+    display: flex;
     justify-content: center;
     gap: 2.5rem;
     padding: 0;
     margin: 20px 0;
 }
-
-/* LINKS STYLE */
 .footer-links li a {
     text-decoration: none;         
     color: white;                  
     font-size: 1.6rem;
     transition: 0.3s;
 }
-
-/* HOVER EFFECT */
 .footer-links li a:hover {
     color: var(--main-color);
 }
-
-/* COPYRIGHT */
 .footer .copyright {
     font-size: 1.4rem;
     color: #aaa;
 }
 
-/* 📲 TABLET */
+/* ===================================================
+   RESPONSIVE — TABLET (max-width: 992px)
+   =================================================== */
 @media (max-width: 992px) {
 
     .home {
@@ -543,9 +467,48 @@ section{
     }
 }
 
-/* 📱 MOBILE */
+/* ===================================================
+   RESPONSIVE — MOBILE (max-width: 600px)
+   =================================================== */
 @media (max-width: 600px) {
 
+    /* ✅ FIX 5a: Reduce section padding on mobile — 15% was too wide, leaving almost no content space */
+    section {
+        padding: 6rem 5%;
+    }
+
+    /* ✅ FIX 5b: Shrink header padding and show hamburger menu icon */
+    .header {
+        padding: 2rem 5%;
+    }
+
+    #menu-icon {
+        display: block;
+    }
+
+    /* Hide nav links on mobile (toggle with JS using your hamburger) */
+    .navbar {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        padding: 2rem 5%;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .navbar.open {
+        display: flex;
+    }
+
+    .navbar a {
+        margin-left: 0;
+        font-size: 2rem;
+    }
+
+    /* ✅ FIX 6: Fix image/content order on mobile — explicit order values required for column flex */
     .home {
         flex-direction: column;
         align-items: center;
@@ -555,9 +518,17 @@ section{
         padding: 4rem 5%;
     }
 
-    /* IMAGE ON TOP */
+    /* Image goes on TOP */
     .home-img {
-        order: -1;
+        order: 1;
+    }
+
+    /* Text goes BELOW */
+    .home-content {
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .home-img img {
@@ -569,13 +540,6 @@ section{
         box-shadow: 
             0 0 30px var(--main-color),
             0 0 60px var(--main-color);
-    }
-
-    /* TEXT BELOW IMAGE */
-    .home-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
     }
 
     .home-content h1 {
@@ -592,23 +556,45 @@ section{
         max-width: 90%;
     }
 
-    /* ICONS CENTER */
     .social-icons {
         display: flex;
         justify-content: center;
         gap: 1.5rem;
     }
 
-    /* BUTTONS */
     .btn-group {
         display: flex;
         justify-content: center;
         gap: 1.5rem;
         flex-wrap: wrap;
     }
+
+    /* ✅ FIX 5c: Services grid — 3 columns is too cramped on mobile, switch to 1 column */
+    .services-container {
+        grid-template-columns: 1fr;
+        padding: 0 5%;
+    }
+
+    /* Stack about section on mobile */
+    .about {
+        flex-direction: column;
+        gap: 4rem;
+        text-align: center;
+    }
+
+    .about-img img {
+        width: 220px;
+        height: 220px;
+    }
+
+    .about-content {
+        max-width: 100%;
+    }
 }
 
-/* 🖥️ LARGE SCREENS */
+/* ===================================================
+   RESPONSIVE — LARGE SCREENS (min-width: 1400px)
+   =================================================== */
 @media (min-width: 1400px) {
 
     .home {
