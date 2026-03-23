@@ -1,3 +1,7 @@
+/* =============================================
+   YOUR FULL PORTFOLIO CSS — with hamburger menu
+   ============================================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -20,7 +24,9 @@ body {
     background: var(--bg-color);
     color: var(--text-color);
 }
-.header{
+
+/* ===== HEADER ===== */
+.header {
     position: fixed;
     width: 100%;
     top: 0;
@@ -33,11 +39,41 @@ body {
     align-items: center;
     z-index: 1000;
 }
+
+/* ===== HAMBURGER ICON ===== */
 #menu-icon {
-    font-size: 3.5rem;
-    color: var(--main-color);
-    display: none;
+    display: none;           /* Hidden on desktop */
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 1100;
 }
+
+#menu-icon span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: var(--main-color);
+    border-radius: 3px;
+    /* Smooth animation for each bar */
+    transition: transform 0.35s ease, opacity 0.35s ease, width 0.35s ease;
+    transform-origin: center;
+}
+
+/* --- X animation when menu is open --- */
+#menu-icon.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+#menu-icon.open span:nth-child(2) {
+    opacity: 0;
+    width: 0;
+}
+#menu-icon.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ===== NAVBAR ===== */
 .logo {
     font-size: 3rem;
     color: var(--text-color);
@@ -48,12 +84,8 @@ body {
 .logo:hover {
     transform: scale(1.1);
 }
-span{
-    background: linear-gradient(
-        270deg,
-        #DF8908 10%,
-        #ff1d15 100%
-    );
+span {
+    background: linear-gradient(270deg, #DF8908 10%, #ff1d15 100%);
     background-clip: text;
     color: transparent;
 }
@@ -65,41 +97,54 @@ span{
     transition: 0.3s ease-in-out;
     border-bottom: 3px solid transparent;
 }
-.navbar a:hover{
+.navbar a:hover {
     color: var(--main-color);
     border-bottom: 3px solid var(--main-color);
 }
-.gradient-btn{
+
+/* ===== DIM OVERLAY (behind mobile menu) ===== */
+.menu-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.menu-overlay.show {
+    display: block;
+    opacity: 1;
+}
+
+/* ===== REST OF YOUR STYLES ===== */
+.gradient-btn {
     font-size: 1.8rem;
     padding: 1rem 2rem;
     border-radius: 3rem;
-    background: linear-gradient(
-        270deg,
-        #DF8908 10%,
-        #ff1d15 100%
-    );
+    background: linear-gradient(270deg, #DF8908 10%, #ff1d15 100%);
     letter-spacing: 1px;
     cursor: pointer;
-    /* ✅ FIX 1: Added missing "s" unit — was "0.3" (ignored by browser), now "0.3s" */
-    transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;   /* ✅ Fixed: was missing "s" */
     color: white;
     border: none;
     text-wrap: nowrap;
 }
-.gradient-btn:hover{
+.gradient-btn:hover {
     transform: scale(1.05);
 }
-section{
+section {
     min-height: 100vh;
     padding: 10rem 15%;
 }
-.home{
+.home {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 15rem;
 }
-.home-content{
+.home-content {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -112,24 +157,24 @@ section{
     margin-top: 1.5rem;
     line-height: 1;
 }
-.home-content h3{
+.home-content h3 {
     margin: 10px 0;
     font-size: 2.2rem;
     font-weight: 600;
 }
-.home-content p{
+.home-content p {
     font-size: 1.4rem;
     max-width: 500px;
     line-height: 1.6;
 }
-.home-img img{
+.home-img img {
     width: 25vw;
     height: 25vw;
     border-radius: 50%;
     box-shadow: 0 0 25px var(--main-color);
-    transition: 0.4s ease-in-out; 
+    transition: 0.4s ease-in-out;
 }
-.home-img img:hover{
+.home-img img:hover {
     box-shadow: 0 0 25px var(--main-color),
                 0 0 50px var(--main-color),
                 0 0 100px var(--main-color);
@@ -145,20 +190,19 @@ section{
     border-radius: 50%;
     color: var(--main-color);
     margin: 3rem 0.5rem;
-    /* ✅ FIX 2: Added missing "s" unit — was "0.3" (ignored by browser), now "0.3s" */
-    transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;   /* ✅ Fixed: was missing "s" */
 }
-.social-icons a:hover{
+.social-icons a:hover {
     color: var(--text-color);
     background-color: var(--main-color);
     transform: scale(1.2) translateY(-5px);
     box-shadow: 0 0 25px var(--main-color);
 }
-.btn-group{
+.btn-group {
     display: flex;
     gap: 1.5rem;
 }
-.btn{
+.btn {
     display: inline-block;
     padding: 1rem 3rem;
     background-color: var(--main-color);
@@ -168,27 +212,26 @@ section{
     color: black;
     border: 2px solid transparent;
     font-weight: 600;
-    /* ✅ FIX 3: Added missing "s" unit — was "0.3" (ignored by browser), now "0.3s" */
-    transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;   /* ✅ Fixed: was missing "s" */
 }
-.btn:hover{
+.btn:hover {
     transform: scale(1.05);
-    /* ✅ FIX 4: Added missing comma between two box-shadow values */
+    /* ✅ Fixed: was missing comma between shadows */
     box-shadow: 0 0 25px var(--main-color),
                 0 0 50px var(--main-color);
 }
-.btn-group a:nth-of-type(2){
+.btn-group a:nth-of-type(2) {
     background-color: black;
     color: var(--main-color);
     border: 2px solid var(--main-color);
     box-shadow: 0 0 25px transparent;
 }
-.btn-group a:nth-of-type(2):hover{
+.btn-group a:nth-of-type(2):hover {
     box-shadow: 0 0 25px var(--main-color);
     background-color: var(--main-color);
-    color: black;   
+    color: black;
 }
-.about{
+.about {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -202,7 +245,7 @@ section{
     box-shadow: 0 0 25px var(--main-color);
     transition: 0.4s ease-in-out;
 }
-.about-img img:hover{
+.about-img img:hover {
     box-shadow: 0 0 25px var(--main-color),
                 0 0 50px var(--main-color),
                 0 0 100px var(--main-color);
@@ -210,26 +253,21 @@ section{
 .about-content {
     max-width: 500px;
 }
-.about-content h2{
+.about-content h2 {
     font-size: 4rem;
 }
 .about-content p {
     font-size: 1.4rem;
     line-height: 1.6;
 }
-.about-content .btn{
+.about-content .btn {
     margin: 3rem 0;
 }
-::-webkit-scrollbar{
-    width: 20px;
-}
-::-webkit-scrollbar-thumb{
-    background-color: var(--main-color);
-}
-::-webkit-scrollbar-track{
-    background-color: var(--bg-color);
-}
-.heading{
+::-webkit-scrollbar { width: 20px; }
+::-webkit-scrollbar-thumb { background-color: var(--main-color); }
+::-webkit-scrollbar-track { background-color: var(--bg-color); }
+
+.heading {
     text-align: center;
     font-size: 7rem;
     margin: 5rem 0;
@@ -252,21 +290,9 @@ section{
     cursor: pointer;
     text-align: center;
 }
-.service-box i {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    color: black;
-}
-.service-box h3 {
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
-    color: black;
-}
-.service-box p {
-    font-size: 1.3rem;
-    line-height: 1.6;
-    color: black;
-}
+.service-box i { font-size: 4rem; margin-bottom: 1rem; color: black; }
+.service-box h3 { font-size: 2.2rem; margin-bottom: 1rem; color: black; }
+.service-box p { font-size: 1.3rem; line-height: 1.6; color: black; }
 .service-box:hover {
     background-color: var(--second-bg-color);
     transform: translateY(-10px);
@@ -274,23 +300,22 @@ section{
 }
 .service-box:hover h3,
 .service-box:hover p,
-.service-box:hover i {
-    color: var(--main-color);
-}
+.service-box:hover i { color: var(--main-color); }
+
 .projects {
     background-color: var(--second-bg-color);
     text-align: center;
-    padding: 10rem 0;   
+    padding: 10rem 0;
 }
 .projects-box {
-    display: flex;              
-    justify-content: center;   
+    display: flex;
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;            
+    flex-wrap: wrap;
     gap: 3rem;
 }
 .project-card {
-    width: 350px;            
+    width: 350px;
     max-width: 90%;
     background-color: var(--bg-color);
     border: 2px solid var(--main-color);
@@ -306,22 +331,13 @@ section{
     object-fit: cover;
     border-radius: 1.5rem;
 }
-.project-card h3 {
-    font-size: 2rem;
-    margin: 1rem 0;
-}
-.project-card p {
-    font-size: 1.4rem;
-    line-height: 1.6;
-}
-.project-card .btn {
-    margin-top: 1.5rem;
-}
+.project-card h3 { font-size: 2rem; margin: 1rem 0; }
+.project-card p { font-size: 1.4rem; line-height: 1.6; }
+.project-card .btn { margin-top: 1.5rem; }
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow:
-        0 0 20px var(--main-color),
-        0 0 40px var(--main-color);
+    box-shadow: 0 0 20px var(--main-color),
+                0 0 40px var(--main-color);
 }
 .contact {
     background: linear-gradient(135deg, #080808, #101010, #1a1a1a);
@@ -333,22 +349,18 @@ section{
     padding: 10rem 2rem;
     width: 100%;
 }
-.contact * {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-}
+.contact * { margin-left: 0 !important; margin-right: 0 !important; }
 .contact-info {
     width: 100%;
     max-width: 600px;
-    margin: 0 auto;   
+    margin: 0 auto;
     background: rgba(255, 255, 255, 0.05);
     border: 2px solid var(--main-color);
     border-radius: 2rem;
     padding: 3rem;
     backdrop-filter: blur(10px);
-    box-shadow:
-        0 0 20px rgba(234, 88, 12, 0.3),
-        0 0 40px rgba(234, 88, 12, 0.2);
+    box-shadow: 0 0 20px rgba(234, 88, 12, 0.3),
+                0 0 40px rgba(234, 88, 12, 0.2);
 }
 .contact-info p {
     font-size: 2rem;
@@ -358,10 +370,7 @@ section{
     justify-content: center;
     gap: 1rem;
 }
-.contact-info i {
-    color: var(--main-color);
-    font-size: 2.2rem;
-}
+.contact-info i { color: var(--main-color); font-size: 2.2rem; }
 .contact .social-icons {
     width: 100%;
     display: flex;
@@ -385,9 +394,8 @@ section{
     background-color: var(--main-color);
     color: black;
     transform: scale(1.1);
-    box-shadow:
-        0 0 20px var(--main-color),
-        0 0 40px var(--main-color);
+    box-shadow: 0 0 20px var(--main-color),
+                0 0 40px var(--main-color);
 }
 
 /* ===== FOOTER ===== */
@@ -428,185 +436,132 @@ section{
     margin: 20px 0;
 }
 .footer-links li a {
-    text-decoration: none;         
-    color: white;                  
+    text-decoration: none;
+    color: white;
     font-size: 1.6rem;
     transition: 0.3s;
 }
-.footer-links li a:hover {
-    color: var(--main-color);
-}
-.footer .copyright {
-    font-size: 1.4rem;
-    color: #aaa;
-}
+.footer-links li a:hover { color: var(--main-color); }
+.footer .copyright { font-size: 1.4rem; color: #aaa; }
 
-/* ===================================================
+
+/* =============================================
    RESPONSIVE — TABLET (max-width: 992px)
-   =================================================== */
+   ============================================= */
 @media (max-width: 992px) {
-
-    .home {
-        flex-direction: column;
-        text-align: center;
-        gap: 3rem;
-    }
-
-    .home-img img {
-        width: 300px;
-        height: 300px;
-    }
-
-    .home-content h1 {
-        font-size: 3.5rem;
-    }
-
-    .home-content p {
-        max-width: 90%;
-        margin: auto;
-    }
+    .home { flex-direction: column; text-align: center; gap: 3rem; }
+    .home-img img { width: 300px; height: 300px; }
+    .home-content h1 { font-size: 3.5rem; }
+    .home-content p { max-width: 90%; margin: auto; }
 }
 
-/* ===================================================
-   RESPONSIVE — MOBILE (max-width: 600px)
-   =================================================== */
-@media (max-width: 600px) {
 
-    /* ✅ FIX 5a: Reduce section padding on mobile — 15% was too wide, leaving almost no content space */
-    section {
-        padding: 6rem 5%;
-    }
+/* =============================================
+   RESPONSIVE — MOBILE (max-width: 768px)
+   ============================================= */
+@media (max-width: 768px) {
 
-    /* ✅ FIX 5b: Shrink header padding and show hamburger menu icon */
+    /* Shrink header */
     .header {
         padding: 2rem 5%;
     }
 
+    /* Show hamburger, hide desktop nav */
     #menu-icon {
-        display: block;
-    }
-
-    /* Hide nav links on mobile (toggle with JS using your hamburger) */
-    .navbar {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.95);
-        padding: 2rem 5%;
-        flex-direction: column;
-        gap: 2rem;
-    }
-
-    .navbar.open {
         display: flex;
     }
 
-    .navbar a {
-        margin-left: 0;
-        font-size: 2rem;
+    /* Mobile nav — slides in from the right */
+    .navbar {
+        position: fixed;
+        top: 0;
+        right: -100%;          /* start off-screen */
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background: rgba(8, 8, 8, 0.98);
+        backdrop-filter: blur(20px);
+        border-left: 1px solid rgba(234, 88, 12, 0.3);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 4rem 3rem;
+        gap: 1rem;
+        z-index: 1050;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* ✅ FIX 6: Fix image/content order on mobile — explicit order values required for column flex */
+    /* Open state — slides into view */
+    .navbar.open {
+        right: 0;
+    }
+
+    .navbar a {
+        font-size: 2.4rem;
+        margin-left: 0;
+        padding: 1rem 0;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        border-top: none;
+        /* Staggered slide-in animation */
+        opacity: 0;
+        transform: translateX(20px);
+        transition: color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .navbar.open a { opacity: 1; transform: translateX(0); }
+    .navbar.open a:nth-child(1) { transition-delay: 0.05s; }
+    .navbar.open a:nth-child(2) { transition-delay: 0.10s; }
+    .navbar.open a:nth-child(3) { transition-delay: 0.15s; }
+    .navbar.open a:nth-child(4) { transition-delay: 0.20s; }
+    .navbar.open a:nth-child(5) { transition-delay: 0.25s; }
+
+    /* Sections */
+    section { padding: 8rem 5%; }
+
+    /* Home */
     .home {
         flex-direction: column;
         align-items: center;
-        justify-content: center;
         text-align: center;
         gap: 2rem;
         padding: 4rem 5%;
     }
-
-    /* Image goes on TOP */
-    .home-img {
-        order: 1;
-    }
-
-    /* Text goes BELOW */
-    .home-content {
-        order: 2;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
+    .home-img  { order: 1; }
+    .home-content { order: 2; display: flex; flex-direction: column; align-items: center; }
     .home-img img {
         width: 220px;
         height: 220px;
         border-radius: 50%;
         object-fit: cover;
         object-position: top;
-        box-shadow: 
-            0 0 30px var(--main-color),
-            0 0 60px var(--main-color);
+        box-shadow: 0 0 30px var(--main-color), 0 0 60px var(--main-color);
     }
+    .home-content h1 { font-size: 2.8rem; }
+    .home-content h3 { font-size: 1.8rem; }
+    .home-content p { font-size: 1.4rem; line-height: 1.6; max-width: 90%; }
+    .social-icons { display: flex; justify-content: center; gap: 1.5rem; }
+    .btn-group { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
 
-    .home-content h1 {
-        font-size: 2.8rem;
-    }
+    /* About */
+    .about { flex-direction: column; gap: 4rem; text-align: center; }
+    .about-img img { width: 220px; height: 220px; }
+    .about-content { max-width: 100%; }
 
-    .home-content h3 {
-        font-size: 1.8rem;
-    }
-
-    .home-content p {
-        font-size: 1.4rem;
-        line-height: 1.6;
-        max-width: 90%;
-    }
-
-    .social-icons {
-        display: flex;
-        justify-content: center;
-        gap: 1.5rem;
-    }
-
-    .btn-group {
-        display: flex;
-        justify-content: center;
-        gap: 1.5rem;
-        flex-wrap: wrap;
-    }
-
-    /* ✅ FIX 5c: Services grid — 3 columns is too cramped on mobile, switch to 1 column */
+    /* Services — 1 column on mobile */
     .services-container {
         grid-template-columns: 1fr;
         padding: 0 5%;
     }
-
-    /* Stack about section on mobile */
-    .about {
-        flex-direction: column;
-        gap: 4rem;
-        text-align: center;
-    }
-
-    .about-img img {
-        width: 220px;
-        height: 220px;
-    }
-
-    .about-content {
-        max-width: 100%;
-    }
 }
 
-/* ===================================================
+
+/* =============================================
    RESPONSIVE — LARGE SCREENS (min-width: 1400px)
-   =================================================== */
+   ============================================= */
 @media (min-width: 1400px) {
-
-    .home {
-        padding: 5rem 15%;
-    }
-
-    .home-img img {
-        width: 450px;
-        height: 450px;
-    }
-
-    .home-content h1 {
-        font-size: 5rem;
-    }
+    .home { padding: 5rem 15%; }
+    .home-img img { width: 450px; height: 450px; }
+    .home-content h1 { font-size: 5rem; }
 }
